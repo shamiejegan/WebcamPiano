@@ -6,7 +6,8 @@ class Grid {
     this.noteSize =40;
     this.notePos = [];
     this.noteState = [];
-    this.keys=['B','A#','A','G#','G','F#','F','E','D#','D','C#','C'];
+    // this.keys=['B','A#','A','G#','G','F#','F','E','D#','D','C#','C'];
+    this.keys=['A','G','F','D','C'];
     this.monoSynth=monoSynth;
 
     // initalise grid structure and state
@@ -61,13 +62,13 @@ class Grid {
           var theta_end=map(this.noteState[i][j],0,1,90,270);;
           arc(x, y, this.noteSize*s, this.noteSize*s, theta_start,theta_end);
 
-          var octave = 6-floor((i+1)/this.keys.length);
+          var octave = 8-floor((i+1)/this.keys.length);
           var note = this.keys[(i+1)%this.keys.length]+octave;
           console.log(note);
           // note velocity (volume, from 0 to 1)
           let velocity = random();
           // time from now (in seconds)
-          let time = random(0,0.1);
+          let time = random(0,0.05);
           // note duration (in seconds)
           let dur = this.noteState[i][j]/10;
         
